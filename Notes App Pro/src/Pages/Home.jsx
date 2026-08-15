@@ -52,7 +52,7 @@ const list={
 
 //   },[])
   return (
-    <div className='w-full bg-amber-100'>
+    <div className='w-full bg-slate-50 ml-48'>
     <h1 className='flex justify-center text-xl m-4'>GOOD {timeOfDay},  SCOTT!</h1>
     <h2 className='flex justify-center text-lg m-4'>Welcome Back! Here's Your Workspace.</h2>
 
@@ -67,7 +67,7 @@ const list={
       <div className='bg-red-400 w-48 rounded-lg h-24 flex flex-col justify-center items-center'><p>42</p><h1>Todos</h1></div>
       <div className='bg-red-400 w-48 rounded-lg h-24 flex flex-col justify-center items-center'><p>42</p><h1>favorite</h1></div> */}
 
-      {Object.entries(list).map(([type, num])=> <div className='bg-gray-100 w-48 rounded-lg h-24 flex flex-col justify-center items-center  text-gray-700 text-xl m-3'><p className='text-2xl'>{num}</p><h1>{type}</h1></div>)}
+      {Object.entries(list).map(([type, num])=> <div className='bg-white w-48 shadow-lg rounded-lg h-28 flex flex-col justify-center items-center  text-gray-700 text-xl m-3'><p className='text-2xl p-3 '>{num}</p ><h1>{type}</h1></div>)}
      
     </div>
 
