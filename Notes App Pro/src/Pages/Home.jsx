@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 
 import {Link} from "react-router-dom"
 
@@ -18,13 +18,13 @@ const Recent=[
     update_time:"2hr ago"
   },
   {
-    title:"React Hooks",
+    title:"Martial Arts school",
     preview:" Understanding useState, useEffect and custom hooks…",
     Category:"Learning",
     update_time:"2hr ago"
   },
   {
-    title:"React Hooks",
+    title:" Customere Care exexutive",
     preview:" Understanding useState, useEffect and custom hooks…",
     Category:"Learning",
     update_time:"2hr ago"
@@ -82,7 +82,7 @@ const Recent=[
 
           <label className='flex h-8 justify-center items-center gap-4'><input type='search'className='bg-white rounded-lg w-64 px-3 h-8' placeholder='search your notes..'/></label>
     </div>
-    <div className='grid grid-cols-3 justify-center items-center m-2 p-2 '>
+    <div className='grid grid-cols-4 justify-center items-center m-2 p-2 '>
       {/* <div className='bg-red-400 w-48 rounded-lg h-24 flex flex-col justify-center items-center'><p>42</p><h1>Notes</h1></div>
       <div className='bg-red-400 w-48 rounded-lg h-24 flex flex-col justify-center items-center'><p>42</p><h1>categories</h1></div>
       <div className='bg-red-400 w-48 rounded-lg h-24 flex flex-col justify-center items-center'><p>42</p><h1>Todos</h1></div>
@@ -109,12 +109,21 @@ const Recent=[
        
       ))}
 
-      <div>
-      
-
-      </div>
 
     </div>
+      <div className='pb-5'>
+      <div className='flex p-4'>
+        <h1 className='pl-5 py-2 text-2xl text-gray-900'>Favorites Notes</h1>
+         <Link to={'My_Notes'} className='text-xl text-gray-800 rounded-lg w-48    ml-auto'>View All &rarr; </Link>
+
+      </div>
+      
+      <p className='pl-5 pt-2 text-lg'>{Recent[0].title}</p>
+      <p className='pl-5 pt-2 text-lg'>{Recent[1].title}</p>
+      <p className='pl-5 pt-2 text-lg'>{Recent[2].title}</p>
+     
+
+      </div>
 
     </div>
   )
