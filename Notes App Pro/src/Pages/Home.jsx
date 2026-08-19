@@ -114,7 +114,7 @@ const Recent=[
       <div className='pb-5'>
       <div className='flex p-4'>
         <h1 className='pl-5 py-2 text-2xl text-gray-900'>Favorites Notes</h1>
-         <Link to={'My_Notes'} className='text-xl text-gray-800 rounded-lg w-48    ml-auto'>View All &rarr; </Link>
+         <Link to={'Favorites'} className='text-xl text-gray-800 rounded-lg w-48    ml-auto'>View All &rarr; </Link>
 
       </div>
       
