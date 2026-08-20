@@ -8,9 +8,30 @@ const New_notes = () => {
         {value:'hobbies', label:'Hobbies'},
         {value:'martial', label:'Martial Arts'},
         {value:'learn', label:'Learn'},
+        {value:'learn', label:'Learn'},
     ])
 
-    const [category, setCategory]=useState('select_category')
+    const [newCategory, setNewCategory]=useState('')
+    const [category, setCategory]=useState('')
+
+    const handleAddCategory=(e)=>{
+        e.preventDefault();
+        
+
+        if(!newCategory.trim()) return;
+        const newValue=newCategory.toLowerCase().replace(/\s+/g, '-')
+
+        if(options.some(opt=>opt.value===newValue)){
+            alert('This option already exists');
+            return
+        }
+
+        const newOption={ value:newValue, label:newCategory}
+
+        setOptions([...options, newOption])
+        setCategory(newValue)
+        setNewCategory('')
+    }
 
     const handleChange=(event)=>{
         setCategory(event.target.value)
@@ -18,7 +39,7 @@ const New_notes = () => {
 // console.log(categor);
 
     }
-
+//handlesubmit is the issue
   return (
     <div className='w-full bg-slate-50 ml-48 h-screen'>
     <div className='flex p-5 items-center mx-4'>
@@ -46,6 +67,8 @@ const New_notes = () => {
                 <div className='flex items-end w-full'><p className='ml-auto flex  items-end text-sm  text-gray-400'>markdown supported</p></div>
             </div>
             <div className=' w-full p-2'>
+            <div>
+            
                 <label className='font-bold py-2'>Category *</label>
                 <p className='text-sm py-2 text-gray-400'>Choose a category to keep your notes organised.</p>
                <select value={category}  onChange={handleChange} className='border border-solid border-gray-500 rounded-lg px-4 h-8 w-3/4'>
@@ -59,8 +82,15 @@ const New_notes = () => {
                 ))
                 }
                </select>
+            </div>
                
-             
+             <div>
+             <input type='text'
+              placeholder='add new category...' 
+              value={newCategory} onChange={(e)=> setNewCategory(e.target.value)}/>
+              <button type='submit' onSubmit={handleAddCategory}>+ New Category</button>
+              {/* <p>{newCategory}</p> */}
+             </div>
             </div>
         </form>
     </div>
