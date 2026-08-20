@@ -3,6 +3,12 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const New_notes = () => {
+    const [options, setOptions]=useState([
+        {value:'courses', label:'Courses'},
+        {value:'hobbies', label:'Hobbies'},
+        {value:'martial', label:'Martial Arts'},
+        {value:'learn', label:'Learn'},
+    ])
 
     const [category, setCategory]=useState('select_category')
 
@@ -42,13 +48,18 @@ const New_notes = () => {
             <div className=' w-full p-2'>
                 <label className='font-bold py-2'>Category *</label>
                 <p className='text-sm py-2 text-gray-400'>Choose a category to keep your notes organised.</p>
-               <select value={category}  onChange={handleChange} className='border border-solid border-gray-500 rounded-lg px-4 h-8 w-full'>
+               <select value={category}  onChange={handleChange} className='border border-solid border-gray-500 rounded-lg px-4 h-8 w-3/4'>
                 <option >--select category--</option>
-                <option value='Courses'>Courses</option>
+                {/* <option value='Courses'>Courses</option>
                 <option value='Hobbies'>Hobbies</option>
                 <option value='Learning'>Learning</option>
-                <option value='Freetime_Activities'> Freetime Activities</option>
+                <option value='Freetime_Activities'> Freetime Activities</option> */}
+                {options.map((opt)=>(
+                <option value={opt.value} key={opt.value}>{opt.value}</option>
+                ))
+                }
                </select>
+               
              
             </div>
         </form>
