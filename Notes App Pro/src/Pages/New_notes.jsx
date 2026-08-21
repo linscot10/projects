@@ -35,11 +35,10 @@ const New_notes = () => {
 
     const handleChange=(event)=>{
         setCategory(event.target.value)
-        console.log(event.target.value)
+        // console.log(event.target.value)
 // console.log(categor);
 
     }
-//handlesubmit is the issue
   return (
     <div className='w-full bg-slate-50 ml-48 h-screen'>
     <div className='flex p-5 items-center mx-4'>
@@ -66,29 +65,30 @@ const New_notes = () => {
                </textarea>
                 <div className='flex items-end w-full'><p className='ml-auto flex  items-end text-sm  text-gray-400'>markdown supported</p></div>
             </div>
-            <div className=' w-full p-2'>
-            <div>
+            <div className=' w-full p-2 flex items-center'>
+            <div className='w-3/4'>
             
                 <label className='font-bold py-2'>Category *</label>
                 <p className='text-sm py-2 text-gray-400'>Choose a category to keep your notes organised.</p>
-               <select value={category}  onChange={handleChange} className='border border-solid border-gray-500 rounded-lg px-4 h-8 w-3/4'>
-                <option >--select category--</option>
+               <select value={category}  onChange={handleChange} className='border border-solid border-gray-500 rounded-lg px-4 h-8 w-full'>
+                <option value=''>--select category--</option>
                 {/* <option value='Courses'>Courses</option>
                 <option value='Hobbies'>Hobbies</option>
                 <option value='Learning'>Learning</option>
                 <option value='Freetime_Activities'> Freetime Activities</option> */}
                 {options.map((opt)=>(
-                <option value={opt.value} key={opt.value}>{opt.value}</option>
+                <option value={opt.value} key={opt.value}>{opt.label}</option>
                 ))
                 }
                </select>
             </div>
                
-             <div>
+             <div className='flex items-end justify-end mt-13 p-3 g-2'>
              <input type='text'
+             className='w-1/2 h-6 border border-solid border-gray-500 rounded-lg p-3 mx-2'
               placeholder='add new category...' 
               value={newCategory} onChange={(e)=> setNewCategory(e.target.value)}/>
-              <button type='submit' onSubmit={handleAddCategory}>+ New Category</button>
+              <button type='submit' onClick={handleAddCategory}>+ New Category</button>
               {/* <p>{newCategory}</p> */}
              </div>
             </div>
